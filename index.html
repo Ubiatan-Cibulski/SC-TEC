@@ -1,485 +1,556 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Currículo | Ubiatan Cibulski</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-:root{
-    --primary:#1f2937;
-    --secondary:#374151;
-    --accent:#2563eb;
-    --light:#f8fafc;
-    --border:#e5e7eb;
-    --text:#4b5563;
-    --success:#10b981;
-}
-
-body{
-    font-family:'Inter',sans-serif;
-    background:#eef2f7;
-    color:var(--text);
-    line-height:1.7;
-}
-
-.container{
-    max-width:1200px;
-    margin:40px auto;
-    background:#fff;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 20px 60px rgba(0,0,0,.08);
-}
-
-.header{
-    background:linear-gradient(135deg,#1e3a8a,#2563eb);
-    color:white;
-    padding:60px;
-}
-
-.header-content{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:40px;
-}
-
-.profile-info h1{
-    font-size:3rem;
-    font-weight:800;
-    margin-bottom:10px;
-}
-
-.profile-info h2{
-    font-size:1.3rem;
-    font-weight:400;
-    opacity:.95;
-    margin-bottom:20px;
-}
-
-.contact{
-    display:flex;
-    flex-wrap:wrap;
-    gap:20px;
-}
-
-.contact span{
-    background:rgba(255,255,255,.15);
-    padding:10px 15px;
-    border-radius:10px;
-    font-size:.95rem;
-}
-
-.avatar{
-    width:280px;
-    height:280px;
-    border-radius:50%;
-    background:white;
-    overflow:hidden;
-    border:5px solid rgba(255,255,255,.3);
-}
-
-.avatar img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.main{
-    display:grid;
-    grid-template-columns:350px 1fr;
-}
-
-.sidebar{
-    background:#f8fafc;
-    padding:40px;
-    border-right:1px solid var(--border);
-}
-
-.content{
-    padding:40px;
-}
-
-.section{
-    margin-bottom:40px;
-}
-
-.section-title{
-    font-size:1.2rem;
-    font-weight:700;
-    color:var(--primary);
-    margin-bottom:20px;
-    padding-bottom:10px;
-    border-bottom:3px solid var(--accent);
-}
-
-.skill{
-    margin-bottom:15px;
-}
-
-.skill-header{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:5px;
-}
-
-.skill-bar{
-    height:8px;
-    background:#dbeafe;
-    border-radius:50px;
-    overflow:hidden;
-}
-
-.skill-fill{
-    height:100%;
-    background:var(--accent);
-}
-
-.tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-}
-
-.tag{
-    background:#dbeafe;
-    color:#1e40af;
-    padding:8px 12px;
-    border-radius:30px;
-    font-size:.85rem;
-    font-weight:500;
-}
-
-.timeline{
-    border-left:3px solid var(--accent);
-    padding-left:25px;
-}
-
-.timeline-item{
-    position:relative;
-    margin-bottom:35px;
-}
-
-.timeline-item::before{
-    content:'';
-    position:absolute;
-    left:-34px;
-    top:4px;
-    width:16px;
-    height:16px;
-    background:var(--accent);
-    border-radius:50%;
-}
-
-.timeline-item h3{
-    color:var(--primary);
-    margin-bottom:5px;
-}
-
-.timeline-item h4{
-    color:var(--accent);
-    margin-bottom:10px;
-    font-weight:600;
-}
-
-.timeline-item ul{
-    padding-left:20px;
-}
-
-.timeline-item li{
-    margin-bottom:6px;
-}
-
-.highlight{
-    background:#eff6ff;
-    border-left:4px solid var(--accent);
-    padding:20px;
-    border-radius:10px;
-}
-
-.project{
-    border:1px solid var(--border);
-    border-radius:15px;
-    padding:25px;
-    margin-bottom:20px;
-    transition:.3s;
-}
-
-.project:hover{
-    transform:translateY(-4px);
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
-
-.project h3{
-    color:var(--primary);
-    margin-bottom:10px;
-}
-
-.project p{
-    margin-bottom:15px;
-}
-
-.project ul{
-    padding-left:20px;
-}
-
-.footer{
-    background:#f8fafc;
-    text-align:center;
-    padding:25px;
-    color:#6b7280;
-    border-top:1px solid var(--border);
-}
-
-@media(max-width:900px){
-
-    .main{
-        grid-template-columns:1fr;
-    }
-
-    .header-content{
-        flex-direction:column;
-        text-align:center;
-    }
-
-    .contact{
-        justify-content:center;
-    }
-
-    .profile-info h1{
-        font-size:2.3rem;
-    }
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubiatan Cibulski | Desenvolvedor SaaS & Empreendedor</title>
+    
+    <!-- Tailwind CSS para Estilização de Alto Nível -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        enterprise: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                            950: '#0f172a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons para Vetores Leves e Modernos -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Efeito de brilho de fundo suave */
+        .glow-bg {
+            background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.05) 0%, transparent 50%);
+        }
+        /* Ajuste fino de impressão para PDF Perfeito */
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; color: black !important; }
+            .print-card { border: 1px solid #e2e8f0 !important; box-shadow: none !important; }
+            .print-grid { grid-template-columns: repeat(12, minmax(0, 1fr)) !important; }
+            .print-col-sidebar { grid-column: span 4 / span 4 !important; }
+            .print-col-content { grid-column: span 8 / span 8 !important; }
+        }
+    </style>
 </head>
-<body>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col glow-bg">
 
-<div class="container">
-
-    <header class="header">
-
-        <div class="header-content">
-
-            <div class="profile-info">
-
-                <h1>Ubiatan Cibulski</h1>
-
-                <h2>Empreendedor Digital • Desenvolvedor SaaS • Criador de Conteúdo</h2>
-
-                <div class="contact">
-                    <span>Corupá - Santa Catarina - Brasil</span>
-                    <span>ubiatan.blog</span>
-                    <span>ubiatan@hotmail.com</span>
-                    <span>(47) 99280-0119</span>
-                </div>
-
+    <!-- Barra Superior de Utilidades (Apenas Web) -->
+    <div class="no-print sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-xs font-semibold tracking-wider uppercase text-slate-500 dark:text-slate-400">Disponível para projetos SaaS</span>
             </div>
-
-            <div class="avatar">
-                <img src="https://avatars.githubusercontent.com/u/211680951?v=4" alt="Ubiatan Cibulski" title="Ubiatan Cibulski">
+            <div class="flex items-center gap-3">
+                <!-- Seletor de Tema -->
+                <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:scale-105 transition-transform" title="Alternar Tema">
+                    <i data-lucide="sun" class="hidden dark:block w-4 h-4"></i>
+                    <i data-lucide="moon" class="block dark:hidden w-4 h-4"></i>
+                </button>
+                <!-- Botão de Impressão / PDF -->
+                <button onclick="window.print()" class="flex items-center gap-2 px-3 py-2 text-xs font-medium bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-lg hover:opacity-90 transition-opacity">
+                    <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+                    <span>Exportar PDF</span>
+                </button>
             </div>
-
         </div>
-
-    </header>
-
-    <div class="main">
-
-        <aside class="sidebar">
-
-            <section class="section">
-
-                <h2 class="section-title">Competências</h2>
-
-                <div class="skill">
-                    <div class="skill-header">
-                        <span>Python</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" style="width:90%"></div>
-                    </div>
-                </div>
-
-                <div class="skill">
-                    <div class="skill-header">
-                        <span>JavaScript</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" style="width:85%"></div>
-                    </div>
-                </div>
-
-                <div class="skill">
-                    <div class="skill-header">
-                        <span>HTML/CSS</span>
-                        <span>95%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" style="width:95%"></div>
-                    </div>
-                </div>
-
-                <div class="skill">
-                    <div class="skill-header">
-                        <span>SEO</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" style="width:90%"></div>
-                    </div>
-                </div>
-
-            </section>
-
-            <section class="section">
-
-                <h2 class="section-title">Especialidades</h2>
-
-                <div class="tags">
-
-                    <div class="tag">SaaS</div>
-                    <div class="tag">WordPress</div>
-                    <div class="tag">SEO</div>
-                    <div class="tag">Python</div>
-                    <div class="tag">APIs</div>
-                    <div class="tag">Automação</div>
-                    <div class="tag">Trading Bots</div>
-                    <div class="tag">Banco de Dados</div>
-                    <div class="tag">UX/UI</div>
-                    <div class="tag">Marketing Digital</div>
-
-                </div>
-
-            </section>
-
-            <section class="section">
-
-                <h2 class="section-title">Áreas de Interesse</h2>
-
-                <div class="highlight">
-                    Inteligência Artificial, Desenvolvimento Mobile,
-                    Trading Algorítmico, Sistemas SaaS,
-                    Automação Empresarial e Marketing Digital.
-                </div>
-
-            </section>
-
-        </aside>
-
-        <main class="content">
-
-            <section class="section">
-
-                <h2 class="section-title">Resumo Profissional</h2>
-
-                <p>
-                    Empreendedor digital e desenvolvedor de soluções web,
-                    especializado em plataformas SaaS, automação de processos,
-                    criação de conteúdo otimizado para SEO e desenvolvimento de
-                    sistemas para nichos especializados.
-                </p>
-
-            </section>
-
-            <section class="section">
-
-                <h2 class="section-title">Experiência Profissional</h2>
-
-                <div class="timeline">
-
-                    <div class="timeline-item">
-
-                        <h3>Fundador & Desenvolvedor</h3>
-                        <h4>Petit Compagnon SaaS</h4>
-
-                        <ul>
-                            <li>Desenvolvimento completo da arquitetura da plataforma.</li>
-                            <li>Gestão de plantel e pedigree digital.</li>
-                            <li>Certificados digitais e CRM para criadores.</li>
-                            <li>Marketplace integrado.</li>
-                        </ul>
-
-                    </div>
-
-                    <div class="timeline-item">
-
-                        <h3>Criador de Conteúdo</h3>
-                        <h4>Ubiatan.blog</h4>
-
-                        <ul>
-                            <li>Produção de conteúdo SEO.</li>
-                            <li>Gestão WordPress.</li>
-                            <li>Monetização digital.</li>
-                            <li>Marketing de conteúdo.</li>
-                        </ul>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-            <section class="section">
-
-                <h2 class="section-title">Projetos em Destaque</h2>
-
-                <div class="project">
-
-                    <h3>Petit Compagnon</h3>
-
-                    <p>
-                        Plataforma SaaS para gestão profissional de canis,
-                        pedigree digital, plantel, ninhadas e marketplace.
-                    </p>
-
-                </div>
-
-                <div class="project">
-
-                    <h3> Ubiatan.blog</h3>
-
-                    <p>
-                        Portal de conteúdo especializado em tecnologia,
-                        empreendedorismo, turismo, fotografia e estilo de vida.
-                    </p>
-
-                </div>
-
-                <div class="project">
-
-                    <h3> Bots de Trading</h3>
-
-                    <p>
-                        Desenvolvimento de algoritmos de negociação
-                        automatizada utilizando Python e APIs financeiras.
-                    </p>
-
-                </div>
-
-            </section>
-
-        </main>
-
     </div>
 
-    <footer class="footer">
-        © 2026 • Ubiatan Cibulski • Currículo Profissional
-    </footer>
+    <!-- Container Principal do Currículo -->
+    <div class="max-w-5xl mx-auto my-6 md:my-12 px-4 w-full flex-grow">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 overflow-hidden transition-colors">
+            
+            <!-- HEADER PREMIUM -->
+            <header class="relative overflow-hidden bg-gradient-to-br from-slate-950 via-enterprise-900 to-enterprise-800 text-white p-6 md:p-12">
+                <!-- Elementos decorativos em vetor ao fundo -->
+                <div class="absolute inset-0 opacity-10 pointer-events-none">
+                    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/>
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid)" />
+                    </svg>
+                </div>
 
-</div>
+                <div class="relative z-10 flex flex-col-reverse md:flex-row justify-between items-center gap-8">
+                    <!-- Informações Principais -->
+                    <div class="text-center md:text-left flex-1">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-enterprise-600/30 text-enterprise-200 text-xs font-medium mb-4 border border-enterprise-500/30">
+                            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                            Tech Founder & Developer
+                        </div>
+                        <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-2 bg-gradient-to-r from-white via-slate-100 to-enterprise-200 bg-clip-text text-transparent">
+                            Ubiatan Cibulski
+                        </h1>
+                        <p class="text-lg md:text-xl text-slate-300 font-light mb-6">
+                            Empreendedor Digital <span class="text-enterprise-400">•</span> Desenvolvedor SaaS <span class="text-enterprise-400">•</span> Especialista SEO
+                        </p>
+                        
+                        <!-- Dados de Contato Interativos -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                            <a href="https://maps.google.com/?q=Corupá,Santa+Catarina,Brasil" target="_blank" class="flex items-center justify-center md:justify-start gap-2 text-slate-300 hover:text-white transition-colors">
+                                <i data-lucide="map-pin" class="w-4 h-4 text-enterprise-400 shrink-0"></i>
+                                <span>Corupá, SC, Brasil</span>
+                            </a>
+                            <a href="https://ubiatan.blog" target="_blank" class="flex items-center justify-center md:justify-start gap-2 text-slate-300 hover:text-white transition-colors">
+                                <i data-lucide="globe" class="w-4 h-4 text-enterprise-400 shrink-0"></i>
+                                <span class="underline underline-offset-4">ubiatan.blog</span>
+                            </a>
+                            <div class="flex items-center justify-center md:justify-start gap-2 text-slate-300 group cursor-pointer" onclick="copyToClipboard('ubiatan@hotmail.com', 'email-copy-text')">
+                                <i data-lucide="mail" class="w-4 h-4 text-enterprise-400 shrink-0"></i>
+                                <span id="email-copy-text" class="group-hover:underline">ubiatan@hotmail.com</span>
+                                <i data-lucide="copy" class="w-3 h-3 text-slate-500 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <div class="flex items-center justify-center md:justify-start gap-2 text-slate-300 group cursor-pointer" onclick="copyToClipboard('+5547992800119', 'phone-copy-text')">
+                                <i data-lucide="phone" class="w-4 h-4 text-enterprise-400 shrink-0"></i>
+                                <span id="phone-copy-text" class="group-hover:underline">(47) 99280-0119</span>
+                                <i data-lucide="copy" class="w-3 h-3 text-slate-500 group-hover:text-white transition-colors"></i>
+                            </div>
+                        </div>
+                    </div>
 
+                    <!-- Avatar Responsivo com efeito Glass -->
+                    <div class="relative shrink-0">
+                        <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-enterprise-500 to-indigo-500 opacity-75 blur-md animate-pulse"></div>
+                        <div class="relative w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden border-4 border-white dark:border-slate-800 bg-white shadow-xl">
+                            <img src="https://avatars.githubusercontent.com/u/211680951?v=4" alt="Ubiatan Cibulski" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80'">
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- CONTEÚDO PRINCIPAL (Grid Inteligente) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 print-grid">
+                
+                <!-- SIDEBAR ESQUERDA -->
+                <aside class="lg:col-span-4 print-col-sidebar bg-slate-50/50 dark:bg-slate-900/30 lg:border-r border-slate-100 dark:border-slate-800 p-6 md:p-8 space-y-8">
+                    
+                    <!-- Competências Técnicas -->
+                    <section>
+                        <div class="flex items-center gap-2 mb-6">
+                            <i data-lucide="code" class="w-5 h-5 text-enterprise-600 dark:text-enterprise-400"></i>
+                            <h2 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">Competências</h2>
+                        </div>
+                        <div class="space-y-4">
+                            <!-- Skill 1 -->
+                            <div>
+                                <div class="flex justify-between text-sm font-medium mb-1.5">
+                                    <span class="text-slate-700 dark:text-slate-300">Python & Algoritmos</span>
+                                    <span class="text-enterprise-600 dark:text-enterprise-400">90%</span>
+                                </div>
+                                <div class="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-enterprise-500 to-enterprise-600 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <!-- Skill 2 -->
+                            <div>
+                                <div class="flex justify-between text-sm font-medium mb-1.5">
+                                    <span class="text-slate-700 dark:text-slate-300">JavaScript / Web App</span>
+                                    <span class="text-enterprise-600 dark:text-enterprise-400">85%</span>
+                                </div>
+                                <div class="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-enterprise-500 to-enterprise-600 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <!-- Skill 3 -->
+                            <div>
+                                <div class="flex justify-between text-sm font-medium mb-1.5">
+                                    <span class="text-slate-700 dark:text-slate-300">HTML5 / CSS3 / Tailwind</span>
+                                    <span class="text-enterprise-600 dark:text-enterprise-400">95%</span>
+                                </div>
+                                <div class="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-enterprise-500 to-enterprise-600 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <!-- Skill 4 -->
+                            <div>
+                                <div class="flex justify-between text-sm font-medium mb-1.5">
+                                    <span class="text-slate-700 dark:text-slate-300">SEO Avançado & Growth</span>
+                                    <span class="text-enterprise-600 dark:text-enterprise-400">90%</span>
+                                </div>
+                                <div class="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-enterprise-500 to-enterprise-600 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Especialidades -->
+                    <section>
+                        <div class="flex items-center gap-2 mb-6">
+                            <i data-lucide="layers" class="w-5 h-5 text-enterprise-600 dark:text-enterprise-400"></i>
+                            <h2 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">Especialidades</h2>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-xs font-medium hover:border-enterprise-500 dark:hover:border-enterprise-500 transition-colors">SaaS Architect</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-xs font-medium hover:border-enterprise-500 dark:hover:border-enterprise-500 transition-colors">WordPress Core</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-xs font-medium hover:border-enterprise-500 dark:hover:border-enterprise-500 transition-colors">SEO & Analytics</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-xs font-medium hover:border-enterprise-500 dark:hover:border-enterprise-500 transition-colors">API Integration</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-xs font-medium hover:border-enterprise-500 dark:hover:border-enterprise-500 transition-colors">Automations</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-xs font-medium hover:border-enterprise-500 dark:hover:border-enterprise-500 transition-colors">Trading Algorítmico</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-xs font-medium hover:border-enterprise-500 dark:hover:border-enterprise-500 transition-colors">UX/UI Minimalista</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-xs font-medium hover:border-enterprise-500 dark:hover:border-enterprise-500 transition-colors">SQL/NoSQL</span>
+                        </div>
+                    </section>
+
+                    <!-- Áreas de Interesse -->
+                    <section>
+                        <div class="flex items-center gap-2 mb-4">
+                            <i data-lucide="compass" class="w-5 h-5 text-enterprise-600 dark:text-enterprise-400"></i>
+                            <h2 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">Áreas de Interesse</h2>
+                        </div>
+                        <div class="p-4 rounded-xl bg-enterprise-50 dark:bg-slate-900/50 border border-enterprise-100 dark:border-slate-800/80 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                            Inteligência Artificial, Desenvolvimento Mobile Nativo, Trading Avançado de Criptoativos, Ecossistemas de Micro-SaaS e Estratégias Inbound de Performance.
+                        </div>
+                    </section>
+
+                </aside>
+
+                <!-- CONTEÚDO PRINCIPAL (Doutrina, Experiências e Projetos) -->
+                <main class="lg:col-span-8 print-col-content p-6 md:p-8 space-y-10">
+                    
+                    <!-- Resumo Profissional -->
+                    <section class="space-y-3">
+                        <div class="flex items-center gap-2 pb-2 border-b border-slate-100 dark:border-slate-800">
+                            <i data-lucide="user" class="w-5 h-5 text-enterprise-600 dark:text-enterprise-400"></i>
+                            <h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Resumo Profissional</h2>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Empreendedor digital e arquiteto de sistemas especializado em desenvolver soluções escaláveis, plataformas inovadoras de modelo SaaS e automação inteligente de processos. Expert na construção de portais e canais integrados focados em conversão e posicionamento orgânico de alta performance utilizando práticas avançadas de SEO.
+                        </p>
+                    </section>
+
+                    <!-- Experiência Profissional -->
+                    <section class="space-y-6">
+                        <div class="flex items-center gap-2 pb-2 border-b border-slate-100 dark:border-slate-800">
+                            <i data-lucide="briefcase" class="w-5 h-5 text-enterprise-600 dark:text-enterprise-400"></i>
+                            <h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Experiência Profissional</h2>
+                        </div>
+                        
+                        <!-- Timeline -->
+                        <div class="relative pl-6 border-l-2 border-slate-200 dark:border-slate-800 space-y-8">
+                            <!-- Job 1 -->
+                            <div class="relative">
+                                <!-- Nó da Linha do Tempo -->
+                                <span class="absolute -left-[31px] top-1.5 bg-enterprise-600 dark:bg-enterprise-500 w-4 h-4 rounded-full ring-4 ring-white dark:ring-slate-900"></span>
+                                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                                    <div>
+                                        <h3 class="font-bold text-slate-900 dark:text-white text-lg">Fundador & CTO</h3>
+                                        <p class="text-sm font-semibold text-enterprise-600 dark:text-enterprise-400">Petit Compagnon SaaS</p>
+                                    </div>
+                                    <span class="text-xs font-semibold px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 w-max">2023 - Presente</span>
+                                </div>
+                                <ul class="mt-3 list-none space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i>
+                                        <span>Projetou e liderou toda a infraestrutura técnica e de banco de dados do sistema SaaS.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i>
+                                        <span>Construiu as features de pedigree digital, gestão inteligente de plantel e automação de certificados criadores.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i>
+                                        <span>Acoplou módulo de marketplace financeiro para transações integradas dentro do nicho veterinário/cinófilo.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Job 2 -->
+                            <div class="relative">
+                                <!-- Nó da Linha do Tempo -->
+                                <span class="absolute -left-[31px] top-1.5 bg-slate-300 dark:bg-slate-700 w-4 h-4 rounded-full ring-4 ring-white dark:ring-slate-900"></span>
+                                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                                    <div>
+                                        <h3 class="font-bold text-slate-900 dark:text-white text-lg">Publisher & Consultor SEO</h3>
+                                        <p class="text-sm font-semibold text-enterprise-600 dark:text-enterprise-400">Ubiatan.blog</p>
+                                    </div>
+                                    <span class="text-xs font-semibold px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 w-max">2020 - Presente</span>
+                                </div>
+                                <ul class="mt-3 list-none space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i>
+                                        <span>Gerenciamento de stack robusta baseada em servidores Cloud, WordPress e arquiteturas serverless.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i>
+                                        <span>Produção estratégica de conteúdo para atração de tráfego, resultando em conversões e monetização passiva.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Projetos em Destaque -->
+                    <section class="space-y-6">
+                        <div class="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="folder-git-2" class="w-5 h-5 text-enterprise-600 dark:text-enterprise-400"></i>
+                                <h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Projetos em Destaque</h2>
+                            </div>
+                        </div>
+
+                        <!-- Grid de Projetos Modernos -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            
+                            <!-- Card 1 -->
+                            <div class="print-card group p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 hover:border-enterprise-500 dark:hover:border-enterprise-500 hover:shadow-lg transition-all duration-300">
+                                <div class="flex justify-between items-start mb-3">
+                                    <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-enterprise-500/10 text-enterprise-600 dark:text-enterprise-400">Produção / SaaS</span>
+                                    <i data-lucide="external-link" class="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                </div>
+                                <h3 class="text-base font-bold text-slate-900 dark:text-white mb-2 group-hover:text-enterprise-600 dark:group-hover:text-enterprise-400 transition-colors">
+                                    Petit Compagnon
+                                </h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                    Plataforma web avançada para controle de pedigree, plantéis e vendas. Possui integrações de pagamentos e painel administrativo modular.
+                                </p>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="print-card group p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 hover:border-enterprise-500 dark:hover:border-enterprise-500 hover:shadow-lg transition-all duration-300">
+                                <div class="flex justify-between items-start mb-3">
+                                    <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">Portal / Conteúdo</span>
+                                    <i data-lucide="external-link" class="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                </div>
+                                <h3 class="text-base font-bold text-slate-900 dark:text-white mb-2 group-hover:text-enterprise-600 dark:group-hover:text-enterprise-400 transition-colors">
+                                    Ubiatan.blog
+                                </h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                    Portal otimizado para motores de busca focado em tendências tecnológicas, programação, viagens inteligentes e fotografia profissional.
+                                </p>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="print-card group p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 hover:border-enterprise-500 dark:hover:border-enterprise-500 hover:shadow-lg transition-all duration-300">
+                                <div class="flex justify-between items-start mb-3">
+                                    <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-violet-500/10 text-violet-600 dark:text-violet-400">Algorítmico</span>
+                                    <i data-lucide="cpu" class="w-4 h-4 text-violet-500"></i>
+                                </div>
+                                <h3 class="text-base font-bold text-slate-900 dark:text-white mb-2 group-hover:text-enterprise-600 dark:group-hover:text-enterprise-400 transition-colors">
+                                    Algorithmic Trading Bots
+                                </h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                    Desenvolvimento de sistemas em Python para automação operacional, consumo de dados por websockets e envio de ordens via APIs de Exchange.
+                                </p>
+                            </div>
+
+                            <!-- Card 4 (Nova adição Enterprise) -->
+                            <div class="print-card group p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 hover:border-enterprise-500 dark:hover:border-enterprise-500 hover:shadow-lg transition-all duration-300">
+                                <div class="flex justify-between items-start mb-3">
+                                    <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-600 dark:text-sky-400">Consultoria</span>
+                                    <i data-lucide="rocket" class="w-4 h-4 text-sky-500"></i>
+                                </div>
+                                <h3 class="text-base font-bold text-slate-900 dark:text-white mb-2 group-hover:text-enterprise-600 dark:group-hover:text-enterprise-400 transition-colors">
+                                    Integrações & APIs
+                                </h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                    Customização de plataformas ERP e CRMs para pequenas e médias empresas, eliminando fluxos manuais com automações automatizadas.
+                                </p>
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <!-- Seção Interativa para Contratação/Contato -->
+                    <section class="no-print p-6 rounded-2xl bg-gradient-to-r from-enterprise-900 to-indigo-950 text-white shadow-lg space-y-4">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div>
+                                <h3 class="text-lg font-bold">Precisa de um Desenvolvimento Customizado?</h3>
+                                <p class="text-sm text-slate-300 max-w-md">Vamos falar sobre o seu projeto SaaS, automação inteligente ou estratégia orgânica de tráfego.</p>
+                            </div>
+                            <button onclick="openProposalModal()" class="px-5 py-2.5 text-sm font-semibold bg-white text-slate-900 hover:bg-slate-100 rounded-lg shadow-md transition-colors flex items-center gap-2">
+                                <i data-lucide="message-square" class="w-4 h-4"></i>
+                                Iniciar Proposta
+                            </button>
+                        </div>
+                    </section>
+
+                </main>
+
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="bg-slate-50 dark:bg-slate-900/80 border-t border-slate-150 dark:border-slate-800 p-6 text-center text-xs text-slate-500 dark:text-slate-400">
+                <p class="mb-1">© 2026 • Ubiatan Cibulski • Desenvolvedor Tech & Empreendedor</p>
+                <p>Criado com altos padrões de acessibilidade, responsividade fluida e performance web.</p>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- MODAL DE PROPOSTA INTERATIVO (Apenas Web) -->
+    <div id="proposal-modal" class="no-print fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl p-6 max-w-md w-full relative transform scale-95 transition-transform duration-300">
+            <button onclick="closeProposalModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            
+            <div class="mb-5 text-center sm:text-left">
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Envie uma Proposta Direta</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400">Isso criará uma mensagem formatada direto para o meu WhatsApp.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Seu Nome</label>
+                    <input type="text" id="prop-name" placeholder="Ex: Roberto Silva" class="w-full px-3 py-2 text-sm rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-enterprise-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Tipo de Projeto</label>
+                    <select id="prop-type" class="w-full px-3 py-2 text-sm rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-enterprise-500">
+                        <option value="SaaS do Zero">Plataforma SaaS</option>
+                        <option value="Automação / API">Automação de Processos / Integração</option>
+                        <option value="Estratégia SEO">Otimização de Sites & SEO</option>
+                        <option value="Outros Serviços">Outro Projeto Customizado</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Resumo da Ideia</label>
+                    <textarea id="prop-desc" rows="3" placeholder="Gostaria de agendar uma reunião ou tirar uma dúvida sobre..." class="w-full px-3 py-2 text-sm rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-enterprise-500"></textarea>
+                </div>
+                <button onclick="sendProposal()" class="w-full py-2.5 text-sm font-semibold bg-enterprise-600 hover:bg-enterprise-700 text-white rounded-lg shadow-md transition-colors flex items-center justify-center gap-2">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                    <span>Enviar para o WhatsApp</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOTIFICAÇÃO DE FEEDBACK -->
+    <div id="toast" class="no-print fixed bottom-5 right-5 z-50 flex items-center gap-2.5 px-4 py-3 rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-xl border border-slate-800 dark:border-slate-200 translate-y-20 opacity-0 transition-all duration-300">
+        <i data-lucide="check" class="w-4 h-4 text-emerald-500"></i>
+        <span id="toast-text" class="text-sm font-medium">Copiado com sucesso!</span>
+    </div>
+
+    <script>
+        // Inicializar os Ícones Lucide
+        lucide.createIcons();
+
+        // Gerenciamento de Tema (Dark / Light)
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        
+        // Verifica preferência anterior salva ou padrão de sistema
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+
+        // Função de Cópia Segura (Alternativa a navigator.clipboard para ambientes sandbox de iframe)
+        function copyToClipboard(text, idToHighlight) {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                showToast(`Copiado: ${text}`);
+                
+                // Realce temporário do elemento clicado
+                const element = document.getElementById(idToHighlight);
+                if (element) {
+                    const originalColor = element.className;
+                    element.classList.add('text-enterprise-400');
+                    setTimeout(() => {
+                        element.className = originalColor;
+                    }, 1000);
+                }
+            } catch (err) {
+                console.error('Falha ao copiar:', err);
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        // Sistema de Toast (Aviso flutuante)
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastText = document.getElementById('toast-text');
+            toastText.textContent = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Operações de Modal Interativo
+        const modal = document.getElementById('proposal-modal');
+        
+        function openProposalModal() {
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.remove('scale-95');
+            modal.querySelector('div').classList.add('scale-100');
+        }
+
+        function closeProposalModal() {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.remove('scale-100');
+            modal.querySelector('div').classList.add('scale-95');
+        }
+
+        // Fecha o modal ao clicar fora dele
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeProposalModal();
+            }
+        });
+
+        // Integração Direta com WhatsApp (Engenharia de Vendas)
+        function sendProposal() {
+            const name = document.getElementById('prop-name').value.trim();
+            const type = document.getElementById('prop-type').value;
+            const desc = document.getElementById('prop-desc').value.trim();
+
+            if (!name) {
+                showToast('Por favor, digite seu nome.');
+                return;
+            }
+
+            // Cria mensagem elegante pré-formatada para fechar negócios
+            const message = `Olá Ubiatan! Me chamo ${name}. Vi o seu currículo premium e gostaria de conversar sobre uma oportunidade de *${type}*.\n\n*Sobre o projeto:* ${desc || 'Gostaria de alinhar uma ideia técnica por aqui.'}`;
+            
+            const encodedText = encodeURIComponent(message);
+            const whatsappURL = `https://api.whatsapp.com/send?phone=5547992800119&text=${encodedText}`;
+            
+            // Abre nova guia com a API do WhatsApp
+            window.open(whatsappURL, '_blank');
+            closeProposalModal();
+        }
+    </script>
 </body>
 </html>
