@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Currículo | Ubiatan Cibulski</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --primary:#1f2937;
+    --secondary:#374151;
+    --accent:#2563eb;
+    --light:#f8fafc;
+    --border:#e5e7eb;
+    --text:#4b5563;
+    --success:#10b981;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#eef2f7;
+    color:var(--text);
+    line-height:1.7;
+}
+
+.container{
+    max-width:1200px;
+    margin:40px auto;
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,.08);
+}
+
+.header{
+    background:linear-gradient(135deg,#1e3a8a,#2563eb);
+    color:white;
+    padding:60px;
+}
+
+.header-content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:40px;
+}
+
+.profile-info h1{
+    font-size:3rem;
+    font-weight:800;
+    margin-bottom:10px;
+}
+
+.profile-info h2{
+    font-size:1.3rem;
+    font-weight:400;
+    opacity:.95;
+    margin-bottom:20px;
+}
+
+.contact{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.contact span{
+    background:rgba(255,255,255,.15);
+    padding:10px 15px;
+    border-radius:10px;
+    font-size:.95rem;
+}
+
+.avatar{
+    width:280px;
+    height:280px;
+    border-radius:50%;
+    background:white;
+    overflow:hidden;
+    border:5px solid rgba(255,255,255,.3);
+}
+
+.avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.main{
+    display:grid;
+    grid-template-columns:350px 1fr;
+}
+
+.sidebar{
+    background:#f8fafc;
+    padding:40px;
+    border-right:1px solid var(--border);
+}
+
+.content{
+    padding:40px;
+}
+
+.section{
+    margin-bottom:40px;
+}
+
+.section-title{
+    font-size:1.2rem;
+    font-weight:700;
+    color:var(--primary);
+    margin-bottom:20px;
+    padding-bottom:10px;
+    border-bottom:3px solid var(--accent);
+}
+
+.skill{
+    margin-bottom:15px;
+}
+
+.skill-header{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:5px;
+}
+
+.skill-bar{
+    height:8px;
+    background:#dbeafe;
+    border-radius:50px;
+    overflow:hidden;
+}
+
+.skill-fill{
+    height:100%;
+    background:var(--accent);
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.tag{
+    background:#dbeafe;
+    color:#1e40af;
+    padding:8px 12px;
+    border-radius:30px;
+    font-size:.85rem;
+    font-weight:500;
+}
+
+.timeline{
+    border-left:3px solid var(--accent);
+    padding-left:25px;
+}
+
+.timeline-item{
+    position:relative;
+    margin-bottom:35px;
+}
+
+.timeline-item::before{
+    content:'';
+    position:absolute;
+    left:-34px;
+    top:4px;
+    width:16px;
+    height:16px;
+    background:var(--accent);
+    border-radius:50%;
+}
+
+.timeline-item h3{
+    color:var(--primary);
+    margin-bottom:5px;
+}
+
+.timeline-item h4{
+    color:var(--accent);
+    margin-bottom:10px;
+    font-weight:600;
+}
+
+.timeline-item ul{
+    padding-left:20px;
+}
+
+.timeline-item li{
+    margin-bottom:6px;
+}
+
+.highlight{
+    background:#eff6ff;
+    border-left:4px solid var(--accent);
+    padding:20px;
+    border-radius:10px;
+}
+
+.project{
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:25px;
+    margin-bottom:20px;
+    transition:.3s;
+}
+
+.project:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.project h3{
+    color:var(--primary);
+    margin-bottom:10px;
+}
+
+.project p{
+    margin-bottom:15px;
+}
+
+.project ul{
+    padding-left:20px;
+}
+
+.footer{
+    background:#f8fafc;
+    text-align:center;
+    padding:25px;
+    color:#6b7280;
+    border-top:1px solid var(--border);
+}
+
+@media(max-width:900px){
+
+    .main{
+        grid-template-columns:1fr;
+    }
+
+    .header-content{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .contact{
+        justify-content:center;
+    }
+
+    .profile-info h1{
+        font-size:2.3rem;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <header class="header">
+
+        <div class="header-content">
+
+            <div class="profile-info">
+
+                <h1>Ubiatan Cibulski</h1>
+
+                <h2>Empreendedor Digital • Desenvolvedor SaaS • Criador de Conteúdo</h2>
+
+                <div class="contact">
+                    <span>Corupá - Santa Catarina - Brasil</span>
+                    <span>ubiatan.blog</span>
+                    <span>ubiatan@hotmail.com</span>
+                    <span>(47) 99280-0119</span>
+                </div>
+
+            </div>
+
+            <div class="avatar">
+                <img src="https://avatars.githubusercontent.com/u/211680951?v=4" alt="Ubiatan Cibulski" title="Ubiatan Cibulski">
+            </div>
+
+        </div>
+
+    </header>
+
+    <div class="main">
+
+        <aside class="sidebar">
+
+            <section class="section">
+
+                <h2 class="section-title">Competências</h2>
+
+                <div class="skill">
+                    <div class="skill-header">
+                        <span>Python</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width:90%"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-header">
+                        <span>JavaScript</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width:85%"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-header">
+                        <span>HTML/CSS</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width:95%"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-header">
+                        <span>SEO</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width:90%"></div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="section">
+
+                <h2 class="section-title">Especialidades</h2>
+
+                <div class="tags">
+
+                    <div class="tag">SaaS</div>
+                    <div class="tag">WordPress</div>
+                    <div class="tag">SEO</div>
+                    <div class="tag">Python</div>
+                    <div class="tag">APIs</div>
+                    <div class="tag">Automação</div>
+                    <div class="tag">Trading Bots</div>
+                    <div class="tag">Banco de Dados</div>
+                    <div class="tag">UX/UI</div>
+                    <div class="tag">Marketing Digital</div>
+
+                </div>
+
+            </section>
+
+            <section class="section">
+
+                <h2 class="section-title">Áreas de Interesse</h2>
+
+                <div class="highlight">
+                    Inteligência Artificial, Desenvolvimento Mobile,
+                    Trading Algorítmico, Sistemas SaaS,
+                    Automação Empresarial e Marketing Digital.
+                </div>
+
+            </section>
+
+        </aside>
+
+        <main class="content">
+
+            <section class="section">
+
+                <h2 class="section-title">Resumo Profissional</h2>
+
+                <p>
+                    Empreendedor digital e desenvolvedor de soluções web,
+                    especializado em plataformas SaaS, automação de processos,
+                    criação de conteúdo otimizado para SEO e desenvolvimento de
+                    sistemas para nichos especializados.
+                </p>
+
+            </section>
+
+            <section class="section">
+
+                <h2 class="section-title">Experiência Profissional</h2>
+
+                <div class="timeline">
+
+                    <div class="timeline-item">
+
+                        <h3>Fundador & Desenvolvedor</h3>
+                        <h4>Petit Compagnon SaaS</h4>
+
+                        <ul>
+                            <li>Desenvolvimento completo da arquitetura da plataforma.</li>
+                            <li>Gestão de plantel e pedigree digital.</li>
+                            <li>Certificados digitais e CRM para criadores.</li>
+                            <li>Marketplace integrado.</li>
+                        </ul>
+
+                    </div>
+
+                    <div class="timeline-item">
+
+                        <h3>Criador de Conteúdo</h3>
+                        <h4>Ubiatan.blog</h4>
+
+                        <ul>
+                            <li>Produção de conteúdo SEO.</li>
+                            <li>Gestão WordPress.</li>
+                            <li>Monetização digital.</li>
+                            <li>Marketing de conteúdo.</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="section">
+
+                <h2 class="section-title">Projetos em Destaque</h2>
+
+                <div class="project">
+
+                    <h3>Petit Compagnon</h3>
+
+                    <p>
+                        Plataforma SaaS para gestão profissional de canis,
+                        pedigree digital, plantel, ninhadas e marketplace.
+                    </p>
+
+                </div>
+
+                <div class="project">
+
+                    <h3> Ubiatan.blog</h3>
+
+                    <p>
+                        Portal de conteúdo especializado em tecnologia,
+                        empreendedorismo, turismo, fotografia e estilo de vida.
+                    </p>
+
+                </div>
+
+                <div class="project">
+
+                    <h3> Bots de Trading</h3>
+
+                    <p>
+                        Desenvolvimento de algoritmos de negociação
+                        automatizada utilizando Python e APIs financeiras.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <footer class="footer">
+        © 2026 • Ubiatan Cibulski • Currículo Profissional
+    </footer>
+
+</div>
+
+</body>
+</html>
